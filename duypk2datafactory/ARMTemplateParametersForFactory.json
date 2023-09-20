@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "duypk2datafactory"
+		},
+		"LS_SqlDb_connectionString": {
+			"value": ""
+		},
+		"LS_StorageGen2_accountKey": {
+			"value": ""
+		},
+		"LS_Synapse_connectionString": {
+			"value": ""
+		},
+		"LS_StorageGen2_properties_typeProperties_url": {
+			"value": "https://duypk2acc.dfs.core.windows.net"
+		}
+	}
+}
