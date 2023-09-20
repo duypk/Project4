@@ -1,0 +1,81 @@
+{
+	"name": "Pipeline Load All Data To Synapse",
+	"properties": {
+		"activities": [
+			{
+				"name": "Pipeline Agency CSV to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Agency CSV to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Pipeline Employee CSV to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Employee CSV to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Pipeline Title CSV to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Title CSV to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Pipeline Payroll 2021 SqlDb to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Pipeline Agency CSV to Synapse",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Pipeline Employee CSV to Synapse",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Pipeline Title CSV to Synapse",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Payroll 2021 SqlDb to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-09-20T08:43:05Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

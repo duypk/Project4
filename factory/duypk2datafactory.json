@@ -1,0 +1,9 @@
+{
+	"name": "duypk2datafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "697e22b3-9125-4c7c-aa59-842b5c32d9d6",
+		"tenantId": "af615078-ca30-4c77-bb48-c8c8c6909949"
+	}
+}

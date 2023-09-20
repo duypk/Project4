@@ -1,0 +1,41 @@
+{
+	"name": "Pipeline Employee CSV to Synapse",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DataFlow Employee CSV to Synapse",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "LS_StorageGen2",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "adlsnycpayroll-duypk2/dirpayrollfiles"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-09-20T08:35:57Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
